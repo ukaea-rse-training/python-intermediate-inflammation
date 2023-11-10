@@ -67,4 +67,3 @@ def daily_min(data):
        :returns: the minimum value of the data as a 1D numpy array
     """
     return np.min(data, axis=0)
-
