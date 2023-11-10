@@ -27,7 +27,10 @@ def main(args):
     for filename in InFiles:
         inflammation_data = models.load_csv(filename)
 
-        view_data = {'average': models.daily_mean(inflammation_data), 'max': models.daily_max(inflammation_data), 'min': models.daily_min(inflammation_data)}
+        view_data = {'average': models.daily_mean(inflammation_data), 
+                     'max': models.daily_max(inflammation_data), 
+                     'min': models.daily_min(inflammation_data)
+                    }
 
         views.visualize(view_data)
 
@@ -40,7 +43,8 @@ if __name__ == "__main__":
         nargs='+',
         help='Input CSV(s) containing inflammation series for each patient')
 
-    parser.add_argument('--full-data-analysis', action='store_true', dest='full_data_analysis')
+    parser.add_argument(
+        '--full-data-analysis', action='store_true', dest='full_data_analysis')
 
     args = parser.parse_args()
 
